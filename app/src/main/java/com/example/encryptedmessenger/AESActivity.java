@@ -177,4 +177,11 @@ public class AESActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(AESActivity.this, MainActivity.class));
+        finish();
+    }
 }
