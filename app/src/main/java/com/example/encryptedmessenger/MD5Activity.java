@@ -65,13 +65,15 @@ public class MD5Activity extends AppCompatActivity {
     public String hashPasswd(String password){
 
         String passwordToHash = password;
-        String generatedPassword = null;
+        String generatedPassword;
         try {
 
             MessageDigest md = MessageDigest.getInstance("MD5");
             md.update(passwordToHash.getBytes());
             byte[] bytes = md.digest();
             StringBuilder sb = new StringBuilder();
+            //https://stackoverflow.com/questions/4846484/md5-hashing-in-android
+            //link to take help for md5 hashing
             for (byte aByte : bytes) {
                 sb.append(Integer.toString((aByte & 0xff) + 0x100, 32).substring(1));
             }
