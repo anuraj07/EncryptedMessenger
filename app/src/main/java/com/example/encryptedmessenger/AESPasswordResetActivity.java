@@ -23,6 +23,7 @@ public class AESPasswordResetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_e_s_password_reset);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Set New Key");
         initViews();
 
         save.setOnClickListener(new View.OnClickListener() {
@@ -63,5 +64,12 @@ public class AESPasswordResetActivity extends AppCompatActivity {
         newPaswd = findViewById(R.id.new_paswd);
         cnfNewPaswd = findViewById(R.id.cnf_new_paswd);
         resetToDefaultPassword = findViewById(R.id.set_default_pswd);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(AESPasswordResetActivity.this, AESActivity.class));
+        finish();
     }
 }
